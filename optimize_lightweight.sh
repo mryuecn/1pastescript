@@ -41,4 +41,5 @@ grub2-mkconfig -o /boot/grub/grub.cfg
 # 清理不必要的包
 apt autoremove -y
 
-echo "优化完成！系统已准备好运行轻量化程序。"
+# 重启系统
+reboot
