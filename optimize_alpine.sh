@@ -1,24 +1,42 @@
 #!/bin/sh
 
-# 更新软件包
+# 更新系统
+echo "正在更新系统..."
 apk update && apk upgrade
 
-# 安装基本工具
-apk add vim nano curl htop openrc
+# 安装必要软件
+echo "正在安装必要软件..."
+apk add nano curl htop vim openntpd openssh
 
-# 设置时区
-apk add tzdata
-cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+# 配置时区为北京时间
+echo "正在设置时区为北京时间..."
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo "Asia/Shanghai" > /etc/timezone
 
-# 安装并配置 SSH
-apk add openssh
+# 配置vm.swappiness
+echo "正在配置vm.swappiness..."
+echo "vm.swappiness=10" >> /etc/sysctl.conf
+sysctl -p
+
+# 配置SSH
+echo "正在配置SSH..."
 sed -i 's/^#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 chmod 600 /etc/ssh/sshd_config
-rc-update add sshd
-rc-service sshd start
+rc-service sshd start  # 启动SSH服务
 
-# 清理未使用的文件
+# 启用时间同步服务
+echo "正在启用时间同步服务..."
+rc-update add openntpd default
+rc-service openntpd start
+
+# 清理不必要的包
+echo "正在清理不必要的包..."
 apk cache clean
 
-echo "优化完成！"
+# 清理终端登录信息
+echo "正在清理终端登录信息..."
+echo 'clear' >> ~/.profile
+
+# 重启系统
+echo "优化完成！系统将重启。"
+reboot
