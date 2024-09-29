@@ -13,11 +13,6 @@ echo "正在设置时区为北京时间..."
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo "Asia/Shanghai" > /etc/timezone
 
-# 配置vm.swappiness
-echo "正在配置vm.swappiness..."
-echo "vm.swappiness=10" >> /etc/sysctl.conf
-sysctl -p
-
 # 配置SSH
 echo "正在配置SSH..."
 sed -i 's/^#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
