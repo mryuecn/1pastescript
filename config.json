@@ -74,11 +74,6 @@
         "tag": "Directdns",
         "address": "8.8.8.8",
         "detour": "Direct"
-      },
-      {
-        "tag": "Speedtestdns",
-        "address": "8.8.8.8",
-        "detour": "Speedtest"
       }
     ],
     "rules": [
@@ -234,13 +229,6 @@
         "download_detour": "Proxy",
         "tag": "Direct1",
         "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/cn.srs"
-      },
-      {
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "Proxy",
-        "tag": "Speedtest0",
-        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geoip/speedtest.srs"
       }
     ],
     "rules": [
@@ -313,12 +301,6 @@
           "Direct1"
         ],
         "outbound": "direct"
-      },
-      {
-        "rule_set": [
-          "Speedtest0"
-        ],
-        "outbound": "Speedtest"
       },
       {
         "ip_is_private": true,
@@ -420,21 +402,6 @@
     },
     {
       "tag": "Google",
-      "outbounds": [
-        "Proxy",
-        "全部",
-        "🇭🇰 香港",
-        "🇯🇵 台湾",
-        "🇰🇷 韩国",
-        "🇯🇵 日本",
-        "🇺🇸 美国",
-        "🇸🇬 新加坡"
-      ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
-    },
-    {
-      "tag": "Speedtest",
       "outbounds": [
         "Proxy",
         "全部",
