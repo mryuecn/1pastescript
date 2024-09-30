@@ -6,7 +6,11 @@ apk update && apk upgrade
 
 # 安装必要软件
 echo "正在安装必要软件..."
-apk add nano curl htop vim openntpd
+apk add nano curl htop vim openntpd openssh
+
+# 生成SSH主机密钥
+echo "正在生成SSH主机密钥..."
+ssh-keygen -A
 
 # 配置时区为北京时间
 echo "正在设置时区为北京时间..."
