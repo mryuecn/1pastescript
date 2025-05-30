@@ -10,7 +10,7 @@ ARCH="amd64"        # 根据需要调整架构（arm64, armv7等）
 OS="linux"
 
 # 构造下载链接
-DOWNLOAD_URL="https://github.com/AdguardTeam/AdGuardHome/releases/download/v${VERSION}/AdGuardHome_linux_${ARCH}.tar.gz"
+DOWNLOAD_URL="https://github.com/AdguardTeam/AdGuardHome/releases/AdGuardHome_linux_386.tar.gz"
 
 # 下载并解压
 curl -L -o /tmp/adguard.tar.gz "$DOWNLOAD_URL"
