@@ -13,4 +13,6 @@ macbl.com
 apps.apple.com
 itunes.apple.com
 mzstatic.com
-amp-api*.apple.com
+amp-api.apps.apple.com
+amp-api-edge.apps.apple.com
+amp-api-search-edge.apps.apple.com
